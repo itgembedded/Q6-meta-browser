@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Frick Demo
+GenericName=Web Browser
+Comment=Remote Frick Demo
+	Exec=/usr/bin/google-chrome --kiosk -start-fullscreen --no-first-run --no_default_browser_check www.frickcontrols.com/pages/quantum_hd_unity/demo
+Terminal=false
+Icon=/usr/bin/chromium/frick-demo.png
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;
+

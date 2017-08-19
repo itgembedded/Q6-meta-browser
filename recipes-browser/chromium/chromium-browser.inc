@@ -25,6 +25,8 @@ SRC_URI = "\
         file://google-chrome \
         ${@bb.utils.contains('PACKAGECONFIG', 'disable-api-keys-info-bar', 'file://api-keys.patch;patchdir=${WORKDIR}', '', d)} \
         file://google-chrome.desktop \
+        file://frick-demo.desktop \
+        file://frick-demo.png \
 "
 
 S = "${WORKDIR}/chromium-${PV}"
@@ -119,7 +121,7 @@ OZONE_WAYLAND_EXTRA_PATCHES ?= ""
 CHROMIUM_X11_GYP_DEFINES ?= ""
 CHROMIUM_WAYLAND_GYP_DEFINES ?= ""
 
-
+# NO LONGER USING THIS - MODIFY google-chrome directly for copy
 CHROMIUM_EXTRA_ARGS ?= " \
         ${@bb.utils.contains('PACKAGECONFIG', 'use-egl', '--use-gl=egl', '', d)} \
         ${@bb.utils.contains('PACKAGECONFIG', 'ignore-lost-context', '--gpu-no-context-lost', '', d)} \
@@ -211,7 +213,7 @@ do_install_append() {
 
 	# Add extra command line arguments to google-chrome script by modifying
         # the dummy "CHROME_EXTRA_ARGS" line
-        sed -i "s/^CHROME_EXTRA_ARGS=\"\"/CHROME_EXTRA_ARGS=\"${CHROMIUM_EXTRA_ARGS}\"/" ${D}${bindir}/google-chrome
+#        sed -i "s/^CHROME_EXTRA_ARGS=\"\"/CHROME_EXTRA_ARGS=\"${CHROMIUM_EXTRA_ARGS}\"/" ${D}${bindir}/google-chrome
 
         # update ROOT_HOME with the root user's $HOME
         sed -i "s#ROOT_HOME#${ROOT_HOME}#" ${D}${bindir}/google-chrome

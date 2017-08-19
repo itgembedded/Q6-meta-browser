@@ -53,6 +53,14 @@ do_install() {
 	if [ -f "${WORKDIR}/google-chrome.desktop" ]; then
 		install -Dm 0644 ${WORKDIR}/google-chrome.desktop ${D}${datadir}/applications/google-chrome.desktop
 	fi
+# added for Q6
+	if [ -f "${WORKDIR}/frick-demo.desktop" ]; then
+		install -Dm 0644 ${WORKDIR}/frick-demo.desktop ${D}${datadir}/applications/frick-demo.desktop
+	fi
+# added for Q6
+	if [ -f "${WORKDIR}/frick-demo.png" ]; then
+		install -Dm 0644 ${WORKDIR}/frick-demo.png ${D}${bindir}/${BPN}/frick-demo.png
+	fi
 	if [ -f "${B}/out/${CHROMIUM_BUILD_TYPE}/product_logo_48.png" ]; then
 		install -Dm 0644 ${B}/out/${CHROMIUM_BUILD_TYPE}/product_logo_48.png ${D}${bindir}/${BPN}/product_logo_48.png
 	fi
